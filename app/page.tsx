@@ -12,6 +12,7 @@ import {
   Linkedin,
   Facebook,
   Instagram,
+  Menu
 } from "lucide-react";
 
 /* =========================
@@ -59,6 +60,7 @@ export default function ApurboPortfolio() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [resumeOpen, setResumeOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -125,7 +127,7 @@ export default function ApurboPortfolio() {
     <div className="flex items-center gap-4">
       
       {/* nav links */}
-      <nav className="hidden md:flex items-center gap-6 text-sm text-slate-600">
+      <nav className="hidden lg:flex items-center gap-6 text-sm text-slate-600">
         <a href="#projects" className="hover:text-slate-900 transition">
           Projects
         </a>
@@ -145,6 +147,13 @@ export default function ApurboPortfolio() {
           Skills
         </a>
       </nav>
+      {/* Mobile hamburger */}
+<button
+  className="lg:hidden p-2 rounded-lg border border-slate-200 hover:bg-slate-100 transition"
+  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+>
+  <Menu className="h-5 w-5" />
+</button>
 
       {/* Resume dropdown */}
       <div className="relative" ref={dropdownRef}>
@@ -200,6 +209,19 @@ export default function ApurboPortfolio() {
     </div>
   </div>
 </header>
+{/* Mobile menu */}
+{mobileMenuOpen && (
+  <div className="lg:hidden px-6 md:px-12 pb-4 border-b border-slate-200 bg-white relative z-40">
+    <div className="flex flex-col gap-3 text-sm text-slate-600">
+      <a href="#projects" onClick={() => setMobileMenuOpen(false)}>Projects</a>
+      <a href="#publications" onClick={() => setMobileMenuOpen(false)}>Publications</a>
+      <a href="#reviewer" onClick={() => setMobileMenuOpen(false)}>Reviewer</a>
+      <a href="#awards" onClick={() => setMobileMenuOpen(false)}>Awards</a>
+      <a href="#certifications" onClick={() => setMobileMenuOpen(false)}>Certifications</a>
+      <a href="#skills" onClick={() => setMobileMenuOpen(false)}>Skills</a>
+    </div>
+  </div>
+)}
       {/* ================= HERO (PROFILE RESTORED) ================= */}
       <section className="px-6 md:px-12 lg:px-24 pt-16 pb-10 relative z-10">
         <div className="grid md:grid-cols-2 gap-8 items-center">
