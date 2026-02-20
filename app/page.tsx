@@ -124,9 +124,9 @@ export default function ApurboPortfolio() {
     </span>
 
     {/* right side */}
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-3">
       
-      {/* nav links */}
+      {/* nav links (desktop only) */}
       <nav className="hidden lg:flex items-center gap-6 text-sm text-slate-600">
         <a href="#projects" className="hover:text-slate-900 transition">
           Projects
@@ -147,13 +147,6 @@ export default function ApurboPortfolio() {
           Skills
         </a>
       </nav>
-      {/* Mobile hamburger */}
-<button
-  className="lg:hidden p-2 rounded-lg border border-slate-200 hover:bg-slate-100 transition"
-  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
->
-  <Menu className="h-5 w-5" />
-</button>
 
       {/* Resume dropdown */}
       <div className="relative" ref={dropdownRef}>
@@ -206,10 +199,20 @@ export default function ApurboPortfolio() {
           </div>
         )}
       </div>
+
+      {/* ✅ Mobile hamburger — RIGHTMOST */}
+      <button
+        className="lg:hidden p-2 rounded-lg border border-slate-200 hover:bg-slate-100 transition"
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+      >
+        <Menu className="h-5 w-5" />
+      </button>
+
     </div>
   </div>
 </header>
-{/* Mobile menu */}
+
+{/* ================= MOBILE MENU ================= */}
 {mobileMenuOpen && (
   <div className="lg:hidden px-6 md:px-12 pb-4 border-b border-slate-200 bg-white relative z-40">
     <div className="flex flex-col gap-3 text-sm text-slate-600">
@@ -221,8 +224,7 @@ export default function ApurboPortfolio() {
       <a href="#skills" onClick={() => setMobileMenuOpen(false)}>Skills</a>
     </div>
   </div>
-)}
-      {/* ================= HERO (PROFILE RESTORED) ================= */}
+)}      {/* ================= HERO (PROFILE RESTORED) ================= */}
       <section className="px-6 md:px-12 lg:px-24 pt-16 pb-10 relative z-10">
         <div className="grid md:grid-cols-2 gap-8 items-center">
 
