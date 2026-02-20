@@ -124,7 +124,7 @@ export default function ApurboPortfolio() {
     </span>
 
     {/* right side */}
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-3 flex-shrink-0">
       
       {/* nav links (desktop only) */}
       <nav className="hidden lg:flex items-center gap-6 text-sm text-slate-600">
@@ -152,7 +152,7 @@ export default function ApurboPortfolio() {
       <div className="relative" ref={dropdownRef}>
         <Button
           size="sm"
-          className="rounded-xl flex items-center gap-2 shadow-sm hover:shadow-md transition"
+          className="rounded-xl flex items-center gap-2 shadow-sm hover:shadow-md transition whitespace-nowrap"
           onClick={() => setResumeOpen(!resumeOpen)}
         >
           <FileText className="h-4 w-4" />
@@ -202,9 +202,9 @@ export default function ApurboPortfolio() {
 
       {/* ✅ Mobile hamburger — RIGHTMOST */}
       <button
-        className="lg:hidden p-2 rounded-lg border border-slate-200 hover:bg-slate-100 transition"
-        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-      >
+  className="lg:hidden order-2 p-2 rounded-lg border border-slate-200 hover:bg-slate-100 transition"
+  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+>
         <Menu className="h-5 w-5" />
       </button>
 
