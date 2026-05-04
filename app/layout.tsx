@@ -33,7 +33,7 @@ export default function RootLayout({
       <body className="bg-white text-slate-800">
 
         {/* ================= MOBILE PROFILE (NEW) ================= */}
-        <div className="md:hidden px-6 pt-10 pb-6 border-b border-slate-200">
+        <div className="md:hidden relative z-40 bg-white px-6 pt-10 pb-6 border-b border-slate-200">
           <img
             src="/profile.jpeg"
             alt="Apurbo Biswas"
@@ -63,12 +63,12 @@ export default function RootLayout({
         <div className="md:flex">
 
           {/* ================= DESKTOP SIDEBAR ================= */}
-          <aside className="hidden md:flex w-[28%] min-w-[340px] h-screen fixed left-0 top-0 border-r border-slate-200 px-10 py-14 flex-col">
+          <aside className="hidden md:flex w-[28%] min-w-[340px] h-screen fixed left-0 top-0 border-r border-slate-200 px-10 py-8 flex-col z-50 bg-white">
             <div>
               <img
                 src="/profile.jpeg"
                 alt="Apurbo Biswas"
-                className="w-44 h-44 rounded-2xl object-cover mb-8 shadow-sm"
+                className="w-32 h-32 rounded-2xl object-cover mb-5 shadow-sm"
               />
 
               <h1 className="text-3xl font-semibold tracking-tight">
@@ -83,7 +83,21 @@ export default function RootLayout({
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 mt-8">
+            <div className="mt-6">
+              <h3 className="text-xs font-semibold mb-4 tracking-wider text-slate-500 uppercase">
+                Connect
+              </h3>
+
+              <div className="flex items-center gap-6 text-slate-600">
+                <SocialIcon href="https://github.com/BiswasApurbo" icon={<Github size={22} />} />
+                <SocialIcon href="https://www.linkedin.com/in/apurbo-biswas23/" icon={<Linkedin size={22} />} />
+                <SocialIcon href="https://www.facebook.com/apurbobiswas.apurbo1" icon={<Facebook size={22} />} />
+                <SocialIcon href="https://www.instagram.com/biswas._.apurbo/" icon={<Instagram size={22} />} />
+                <SocialIcon href="mailto:apurbobiswas.aiub@gmail.com" icon={<Mail size={22} />} />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 mt-6">
               {[
                 ["7", "Publications"],
                 ["3", "Reviewer Roles"],
@@ -98,20 +112,6 @@ export default function RootLayout({
                   <div className="text-xs text-slate-500">{label}</div>
                 </div>
               ))}
-            </div>
-
-            <div className="mt-14">
-              <h3 className="text-xs font-semibold mb-6 tracking-wider text-slate-500 uppercase">
-                Connect
-              </h3>
-
-              <div className="flex items-center gap-6 text-slate-600">
-                <SocialIcon href="https://github.com/BiswasApurbo" icon={<Github size={22} />} />
-                <SocialIcon href="https://www.linkedin.com/in/apurbo-biswas23/" icon={<Linkedin size={22} />} />
-                <SocialIcon href="https://www.facebook.com/apurbobiswas.apurbo1" icon={<Facebook size={22} />} />
-                <SocialIcon href="https://www.instagram.com/biswas._.apurbo/" icon={<Instagram size={22} />} />
-                <SocialIcon href="mailto:apurbobiswas.aiub@gmail.com" icon={<Mail size={22} />} />
-              </div>
             </div>
 
             <div className="mt-auto text-xs text-slate-400 tracking-wide">
