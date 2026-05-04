@@ -63,12 +63,12 @@ export default function RootLayout({
         <div className="md:flex">
 
           {/* ================= DESKTOP SIDEBAR ================= */}
-          <aside className="hidden md:flex w-[28%] min-w-[340px] h-screen fixed left-0 top-0 border-r border-slate-200 px-10 py-14 flex-col z-50 bg-white">
+          <aside className="hidden md:flex w-[28%] min-w-[340px] h-screen fixed left-0 top-0 border-r border-slate-200 px-10 py-8 flex-col z-50 bg-white">
             <div>
               <img
                 src="/profile.jpeg"
                 alt="Apurbo Biswas"
-                className="w-44 h-44 rounded-2xl object-cover mb-8 shadow-sm"
+                className="w-32 h-32 rounded-2xl object-cover mb-5 shadow-sm"
               />
 
               <h1 className="text-3xl font-semibold tracking-tight">
@@ -83,8 +83,8 @@ export default function RootLayout({
               </p>
             </div>
 
-            <div className="mt-8">
-              <h3 className="text-xs font-semibold mb-6 tracking-wider text-slate-500 uppercase">
+            <div className="mt-6">
+              <h3 className="text-xs font-semibold mb-4 tracking-wider text-slate-500 uppercase">
                 Connect
               </h3>
 
@@ -97,7 +97,7 @@ export default function RootLayout({
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 mt-12">
+            <div className="grid grid-cols-2 gap-3 mt-6">
               {[
                 ["7", "Publications"],
                 ["3", "Reviewer Roles"],
