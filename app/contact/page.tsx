@@ -54,7 +54,7 @@ export default function ContactPage() {
       >
         <p>
           I’m open to collaborations in Machine Learning, Deep Learning,
-          Computer Vision, and NLP. If you're working on impactful AI research
+          Computer Vision, and NLP. If you&apos;re working on impactful AI research
           or innovative projects, I’d be glad to connect.
         </p>
 

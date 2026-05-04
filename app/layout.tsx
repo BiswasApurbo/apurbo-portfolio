@@ -45,9 +45,10 @@ export default function RootLayout({
           </h1>
 
           <p className="text-sm text-slate-600 mt-2 leading-relaxed">
-            Undergraduate Student focused on Machine Learning & Deep Learning.
+            CSE undergraduate building applied AI systems across vision,
+            language, forecasting, and healthcare research.
             <br />
-            Aspiring Researcher and Academic Reviewer.
+            Research author and academic reviewer.
           </p>
 
           <div className="flex gap-5 mt-4 text-slate-600">
@@ -75,10 +76,28 @@ export default function RootLayout({
               </h1>
 
               <p className="text-base text-slate-600 mt-4 leading-relaxed">
-                Undergraduate Student focused on Machine Learning & Deep Learning.
+                CSE undergraduate building applied AI systems across vision,
+                language, forecasting, and healthcare research.
                 <br />
-                Aspiring Researcher and Academic Reviewer.
+                Research author and academic reviewer.
               </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 mt-8">
+              {[
+                ["7", "Publications"],
+                ["3", "Reviewer Roles"],
+                ["3.86", "CGPA"],
+                ["6", "Projects"],
+              ].map(([value, label]) => (
+                <div
+                  key={label}
+                  className="rounded-lg border border-slate-200 bg-white px-3 py-3"
+                >
+                  <div className="text-lg font-semibold">{value}</div>
+                  <div className="text-xs text-slate-500">{label}</div>
+                </div>
+              ))}
             </div>
 
             <div className="mt-14">
@@ -105,12 +124,12 @@ export default function RootLayout({
 
             {/* NAVBAR */}
             <header
-  className={`fixed top-0 w-full md:left-[28%] md:w-[72%] px-6 md:px-20 py-6 md:py-8 flex justify-end items-center text-sm font-medium transition-transform duration-300 z-50 ${
+  className={`fixed top-0 w-full md:left-[28%] md:w-[72%] px-6 md:px-8 lg:px-10 xl:px-16 py-6 md:py-8 flex justify-end items-center text-sm font-medium transition-transform duration-300 z-50 ${
     showNav ? "translate-y-0" : "-translate-y-full"
   }`}
 >
   {/* DESKTOP NAV */}
-  <div className="hidden md:flex gap-6">
+  <div className="hidden md:flex max-w-full flex-wrap justify-end gap-x-4 gap-y-2 lg:gap-x-5">
     <NavLink href="/">About</NavLink>
     <NavLink href="/projects">Projects</NavLink>
     <NavLink href="/publications">Publications</NavLink>
