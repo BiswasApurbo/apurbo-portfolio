@@ -83,7 +83,21 @@ export default function RootLayout({
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 mt-8">
+            <div className="mt-8">
+              <h3 className="text-xs font-semibold mb-6 tracking-wider text-slate-500 uppercase">
+                Connect
+              </h3>
+
+              <div className="flex items-center gap-6 text-slate-600">
+                <SocialIcon href="https://github.com/BiswasApurbo" icon={<Github size={22} />} />
+                <SocialIcon href="https://www.linkedin.com/in/apurbo-biswas23/" icon={<Linkedin size={22} />} />
+                <SocialIcon href="https://www.facebook.com/apurbobiswas.apurbo1" icon={<Facebook size={22} />} />
+                <SocialIcon href="https://www.instagram.com/biswas._.apurbo/" icon={<Instagram size={22} />} />
+                <SocialIcon href="mailto:apurbobiswas.aiub@gmail.com" icon={<Mail size={22} />} />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 mt-12">
               {[
                 ["7", "Publications"],
                 ["3", "Reviewer Roles"],
@@ -98,20 +112,6 @@ export default function RootLayout({
                   <div className="text-xs text-slate-500">{label}</div>
                 </div>
               ))}
-            </div>
-
-            <div className="mt-14">
-              <h3 className="text-xs font-semibold mb-6 tracking-wider text-slate-500 uppercase">
-                Connect
-              </h3>
-
-              <div className="flex items-center gap-6 text-slate-600">
-                <SocialIcon href="https://github.com/BiswasApurbo" icon={<Github size={22} />} />
-                <SocialIcon href="https://www.linkedin.com/in/apurbo-biswas23/" icon={<Linkedin size={22} />} />
-                <SocialIcon href="https://www.facebook.com/apurbobiswas.apurbo1" icon={<Facebook size={22} />} />
-                <SocialIcon href="https://www.instagram.com/biswas._.apurbo/" icon={<Instagram size={22} />} />
-                <SocialIcon href="mailto:apurbobiswas.aiub@gmail.com" icon={<Mail size={22} />} />
-              </div>
             </div>
 
             <div className="mt-auto text-xs text-slate-400 tracking-wide">
