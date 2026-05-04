@@ -131,7 +131,6 @@ export default function RootLayout({
   {/* DESKTOP NAV */}
   <div className="hidden md:flex max-w-full flex-wrap justify-end gap-x-4 gap-y-2 lg:gap-x-5">
     <NavLink href="/">About</NavLink>
-    <NavLink href="/research">Research</NavLink>
     <NavLink href="/projects">Projects</NavLink>
     <NavLink href="/publications">Publications</NavLink>
     <NavLink href="/reviewer">Reviewer</NavLink>
@@ -154,7 +153,6 @@ export default function RootLayout({
             {mobileOpen && (
               <div className="md:hidden fixed top-16 left-0 w-full bg-white border-t border-slate-200 shadow-md flex flex-col px-6 py-4 gap-4 text-sm z-40">
                 <NavLink href="/">About</NavLink>
-                <NavLink href="/research">Research</NavLink>
                 <NavLink href="/projects">Projects</NavLink>
                 <NavLink href="/publications">Publications</NavLink>
                 <NavLink href="/reviewer">Reviewer</NavLink>
