@@ -1,80 +1,118 @@
 "use client";
 
+import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
+import { publications } from "@/lib/portfolio-data";
 
-const publications = [
-  {
-    title:
-      "Industry 5.0-Driven Deep Learning Framework for Long-Term Global CO2 Emission Forecasting",
-    meta: "ECCT 2026 • ACSR (Springer Nature) • 2026",
-  },
-  {
-    title:
-      "Few-Shot Multimodal Instruction Tuning for Vision-Language Models",
-    meta: "ECCT 2026 • Taylor & Francis • 2026",
-  },
-  {
-    title:
-      "Biomedical LLM Hallucination Detection via Classifier-Conditioned Factuality Classification",
-    meta: "ECCT 2026 • Taylor & Francis • 2026",
-  },
-  {
-    title:
-      "End-to-End Deep Learning Framework for Kidney MRI Segmentation and Explainable CKD Detection Using Transfer Learning",
-    meta: "ECCT 2026 • ACSR (Springer Nature) • 2026",
-  },
-  {
-    title:
-      "A Hybrid Deep Learning Framework for Real-Time Traffic Risk Prediction",
-    meta: "IEEE QPAIN 2026 • Chittagong, Bangladesh",
-  },
-  {
-    title:
-      "Domain-Specific NLP for Personalized Radiation Treatment Pathways with LLM Fine-Tuning",
-    meta: "IEEE WIECON-ECE 2025 • Cox's Bazar, Bangladesh",
-  },
-  {
-    title: "Securing the Future: Enhancing Cybersecurity in Supply Chains",
-    meta: "Book Chapter • IGI Global • 2025",
-  },
+const filters = [
+  "All",
+  "Conference",
+  "Book Chapter",
+  "Deep Learning",
+  "LLMs",
+  "Healthcare AI",
+  "Forecasting",
+  "Cybersecurity",
 ];
 
 export default function PublicationsPage() {
-  return (
-    <div className="max-w-4xl w-full">
+  const [activeFilter, setActiveFilter] = useState("All");
 
-      {/* ===== PAGE TITLE (STANDARDIZED) ===== */}
-      <motion.h2
+  const filteredPublications = useMemo(() => {
+    if (activeFilter === "All") {
+      return publications;
+    }
+
+    return publications.filter(
+      (publication) =>
+        publication.type === activeFilter ||
+        publication.tags.includes(activeFilter)
+    );
+  }, [activeFilter]);
+
+  return (
+    <div className="max-w-5xl w-full">
+      <motion.div
         initial={{ opacity: 0, x: -40 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-2xl font-semibold mb-12"
+        className="mb-10"
       >
-        Publications
-      </motion.h2>
+        <h2 className="text-2xl font-semibold">Publications</h2>
+        <p className="text-slate-600 leading-relaxed mt-4 max-w-3xl">
+          Seven research outputs spanning deep learning, multimodal AI,
+          healthcare NLP, medical imaging, traffic risk prediction, forecasting,
+          and cybersecurity.
+        </p>
+      </motion.div>
 
-      <div className="space-y-12">
-        {publications.map((publication, index) => (
-          <motion.div
-            key={publication.title}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.05, duration: 0.6 }}
-            viewport={{ once: true }}
-            className={`border-l-2 pl-5 ${
-              index === 0 ? "border-black" : "border-slate-300"
+      <div className="flex flex-wrap gap-2 mb-12">
+        {filters.map((filter) => (
+          <button
+            key={filter}
+            onClick={() => setActiveFilter(filter)}
+            className={`rounded-lg border px-3 py-2 text-sm font-medium transition ${
+              activeFilter === filter
+                ? "border-slate-950 bg-slate-950 text-white"
+                : "border-slate-300 bg-white text-slate-700 hover:border-slate-950"
             }`}
           >
-            <h3 className="text-lg font-semibold leading-snug">
-              {publication.title}
-            </h3>
-
-            <p className="text-sm text-slate-500 mt-2">{publication.meta}</p>
-          </motion.div>
+            {filter}
+          </button>
         ))}
       </div>
 
+      <div className="relative space-y-8">
+        <div className="absolute left-[11px] top-3 bottom-3 w-px bg-slate-200" />
+
+        {filteredPublications.map((publication, index) => (
+          <motion.div
+            key={publication.title}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.04, duration: 0.5 }}
+            viewport={{ once: true }}
+            className="relative pl-10"
+          >
+            <div
+              className={`absolute left-0 top-2 h-6 w-6 rounded-full border-4 bg-white ${
+                index === 0 ? "border-slate-950" : "border-slate-300"
+              }`}
+            />
+
+            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+              <div className="flex flex-wrap items-center gap-2 mb-3">
+                <span className="rounded-md bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700">
+                  {publication.type}
+                </span>
+                <span className="text-xs font-medium text-slate-500">
+                  {publication.year}
+                </span>
+              </div>
+
+              <h3 className="text-lg font-semibold leading-snug">
+                {publication.title}
+              </h3>
+
+              <p className="text-sm text-slate-500 mt-2">
+                {publication.venue} / {publication.publisher}
+              </p>
+
+              <div className="flex flex-wrap gap-2 mt-5">
+                {publication.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-md border border-slate-200 px-2 py-1 text-xs text-slate-600"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
     </div>
   );
 }

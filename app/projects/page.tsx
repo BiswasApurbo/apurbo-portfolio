@@ -2,96 +2,81 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-
-const projects = [
-  {
-    title: "VirtualMouse-AI",
-    slug: "virtual-mouse",
-    img: "/projects/virtual-mouse/ss1.webp",
-  },
-  {
-    title: "Real-Time Color Detection",
-    slug: "color-detection",
-    img: "/projects/color-detection/ss1.webp",
-  },
-  {
-    title: "Sales Forecasting",
-    slug: "sales-forecasting",
-    img: "/projects/sales-forecasting/ss1.webp",
-  },
-  {
-    title: "Stock Prediction",
-    slug: "stock-prediction",
-    img: "/projects/stock-prediction/ss1.webp",
-  },
-  {
-    title: "DhakaConnect",
-    slug: "dhaka-connect",
-    img: "/projects/dhaka-connect/ss1.webp",
-  },
-  {
-    title: "Car Rental System",
-    slug: "car-rental",
-    img: "/projects/car-rental/ss1.webp",
-  },
-];
+import { ArrowRight } from "lucide-react";
+import { projects } from "@/lib/portfolio-data";
 
 export default function ProjectsPage() {
   return (
-    <div className="max-w-4xl w-full">
-
-      {/* ===== PAGE TITLE ===== */}
-      <motion.h2
+    <div className="max-w-6xl w-full">
+      <motion.div
         initial={{ opacity: 0, x: -40 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-2xl font-semibold mb-10"
+        className="mb-10"
       >
-        Selected Projects
-      </motion.h2>
+        <h2 className="text-2xl font-semibold">Applied AI Project Lab</h2>
+        <p className="text-slate-600 leading-relaxed mt-4 max-w-3xl">
+          A collection of working systems across computer vision, forecasting,
+          transport navigation, predictive modeling, and database-backed
+          application design.
+        </p>
+      </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {projects.map((project, index) => (
           <motion.div
             key={project.slug}
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.08, duration: 0.5 }}
+            transition={{ delay: index * 0.06, duration: 0.5 }}
             viewport={{ once: true }}
             whileHover={{ y: -4 }}
           >
             <Link
               href={`/projects/${project.slug}`}
-              className="group block rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-md transition duration-300"
+              className="group grid sm:grid-cols-[180px_1fr] h-full overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm hover:shadow-md transition"
             >
-
-              {/* Card Title */}
-              <div className="px-5 py-4 text-sm font-semibold border-b border-slate-200 bg-white">
-                {project.title}
-              </div>
-
-              {/* Image */}
-              <div className="relative overflow-hidden">
+              <div className="relative min-h-48 sm:min-h-full overflow-hidden">
                 <img
                   src={project.img}
                   alt={project.title}
-                  className="w-full h-52 object-cover transition duration-500 group-hover:scale-105"
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                 />
-
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition duration-300">
-                  <span className="text-white text-sm font-medium tracking-wide">
-                    View Details →
-                  </span>
-                </div>
               </div>
 
+              <div className="p-6">
+                <div className="text-xs font-medium text-slate-500">
+                  {project.domain}
+                </div>
+
+                <h3 className="text-lg font-semibold mt-2">
+                  {project.title}
+                </h3>
+
+                <p className="text-sm text-slate-600 leading-relaxed mt-3">
+                  {project.summary}
+                </p>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {project.pipeline.map((step) => (
+                    <span
+                      key={step}
+                      className="rounded-md border border-slate-200 px-2 py-1 text-xs text-slate-600"
+                    >
+                      {step}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="inline-flex items-center gap-2 text-sm font-medium mt-6 text-slate-700 group-hover:text-black">
+                  View case study
+                  <ArrowRight size={14} />
+                </div>
+              </div>
             </Link>
           </motion.div>
         ))}
-
       </div>
     </div>
   );

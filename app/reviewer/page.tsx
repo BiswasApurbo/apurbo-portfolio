@@ -1,130 +1,91 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, ShieldCheck } from "lucide-react";
+import { reviewers } from "@/lib/portfolio-data";
 
 export default function ReviewerPage() {
   return (
-    <div className="max-w-4xl w-full">
-
-      {/* ===== PAGE TITLE ===== */}
-      <motion.h2
+    <div className="max-w-5xl w-full">
+      <motion.div
         initial={{ opacity: 0, x: -40 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-2xl font-semibold mb-12"
+        className="mb-12"
       >
-        Academic Reviewer
-      </motion.h2>
+        <h2 className="text-2xl font-semibold">Academic Service</h2>
+        <p className="text-slate-600 leading-relaxed mt-4 max-w-3xl">
+          I contribute to the research community through peer review, evaluating
+          technical rigor, experimental design, reproducibility, novelty, and
+          clarity in applied AI and interdisciplinary computational work.
+        </p>
+      </motion.div>
 
-      {/* ===== INTRO ===== */}
-      <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="text-slate-600 leading-relaxed mb-14"
-      >
-        I actively contribute to the academic community by serving as a peer
-        reviewer for international journals and publishers in Machine Learning,
-        Deep Learning, and applied AI research.
-      </motion.p>
-
-      <div className="space-y-14">
-
-        {/* ===== IEEE ACCESS ===== */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="border-l-2 border-black pl-5"
-        >
-          <h3 className="text-lg font-semibold">
-            IEEE Access
-          </h3>
-
-          <p className="text-sm text-slate-500 mt-1">
-            Journal Reviewer
-          </p>
-
-          <p className="text-slate-600 mt-4 leading-relaxed">
-            Conducted structured peer reviews assessing novelty, technical rigor,
-            experimental validation, and reproducibility of AI-driven research.
-          </p>
-
-          <motion.a
-            href="https://drive.google.com/drive/folders/16DryrTHQdm_0CUdq2gAPynleDBPF6XUF?usp=drive_link"
-            target="_blank"
-            whileHover={{ y: -2 }}
-            className="inline-flex items-center gap-2 mt-5 text-sm font-medium text-slate-700 hover:text-black transition"
+      <div className="grid lg:grid-cols-3 gap-5 mb-14">
+        {reviewers.map((reviewer, index) => (
+          <motion.div
+            key={reviewer.name}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.08, duration: 0.5 }}
+            viewport={{ once: true }}
+            className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm"
           >
-            View Certifications
-            <ExternalLink size={14} />
-          </motion.a>
-        </motion.div>
+            <div className="mb-5 inline-flex rounded-lg bg-slate-950 p-2 text-white">
+              <ShieldCheck size={18} />
+            </div>
 
-        {/* ===== PLOS ONE ===== */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.6 }}
-          viewport={{ once: true }}
-          className="border-l-2 border-slate-300 pl-5"
-        >
-          <h3 className="text-lg font-semibold">
-            PLOS ONE
-          </h3>
+            <h3 className="text-lg font-semibold">{reviewer.name}</h3>
+            <p className="text-sm text-slate-500 mt-1">{reviewer.role}</p>
+            <p className="text-sm text-slate-600 leading-relaxed mt-4">
+              {reviewer.detail}
+            </p>
 
-          <p className="text-sm text-slate-500 mt-1">
-            Journal Reviewer
-          </p>
-
-          <p className="text-slate-600 mt-4 leading-relaxed">
-            Reviewed interdisciplinary computational research integrating
-            machine learning methodologies with real-world applications.
-          </p>
-
-          <motion.a
-            href="https://drive.google.com/drive/folders/1BpxekP8Clpt-GF_u3GVDfhFnCbXdIkub?usp=drive_link"
-            target="_blank"
-            whileHover={{ y: -2 }}
-            className="inline-flex items-center gap-2 mt-5 text-sm font-medium text-slate-700 hover:text-black transition"
-          >
-            View Certification
-            <ExternalLink size={14} />
-          </motion.a>
-        </motion.div>
-
-        {/* ===== IGI GLOBAL ===== */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          viewport={{ once: true }}
-          className="border-l-2 border-slate-300 pl-5"
-        >
-          <h3 className="text-lg font-semibold">
-            IGI Global
-          </h3>
-
-          <p className="text-sm text-slate-500 mt-1">
-            Book Chapter Reviewer
-          </p>
-
-          <p className="text-slate-600 mt-4 leading-relaxed">
-            Evaluated scholarly book chapters in emerging technologies,
-            cybersecurity, and applied artificial intelligence systems.
-          </p>
-
-          <div className="mt-5 text-sm text-emerald-600 font-medium">
-            ✔ Acknowledged Reviewer
-          </div>
-        </motion.div>
-
+            {reviewer.href ? (
+              <motion.a
+                href={reviewer.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -2 }}
+                className="inline-flex items-center gap-2 mt-5 text-sm font-medium text-slate-700 hover:text-black transition"
+              >
+                View certification
+                <ExternalLink size={14} />
+              </motion.a>
+            ) : (
+              <div className="mt-5 text-sm font-medium text-emerald-700">
+                Acknowledged reviewer
+              </div>
+            )}
+          </motion.div>
+        ))}
       </div>
 
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm"
+      >
+        <h3 className="text-lg font-semibold">Review Lens</h3>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-5">
+          {[
+            "Novelty",
+            "Technical rigor",
+            "Experimental validation",
+            "Reproducibility",
+          ].map((item) => (
+            <div
+              key={item}
+              className="rounded-md border border-slate-200 px-3 py-3 text-sm font-medium text-slate-700"
+            >
+              {item}
+            </div>
+          ))}
+        </div>
+      </motion.section>
     </div>
   );
 }
