@@ -124,12 +124,12 @@ export default function RootLayout({
 
             {/* NAVBAR */}
             <header
-  className={`fixed top-0 w-full md:left-[28%] md:w-[72%] px-6 md:px-20 py-6 md:py-8 flex justify-end items-center text-sm font-medium transition-transform duration-300 z-50 ${
+  className={`fixed top-0 w-full md:left-[28%] md:w-[72%] px-6 md:px-8 lg:px-10 xl:px-16 py-6 md:py-8 flex justify-end items-center text-sm font-medium transition-transform duration-300 z-50 ${
     showNav ? "translate-y-0" : "-translate-y-full"
   }`}
 >
   {/* DESKTOP NAV */}
-  <div className="hidden md:flex gap-6">
+  <div className="hidden md:flex max-w-full flex-wrap justify-end gap-x-4 gap-y-2 lg:gap-x-5">
     <NavLink href="/">About</NavLink>
     <NavLink href="/research">Research</NavLink>
     <NavLink href="/projects">Projects</NavLink>

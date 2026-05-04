@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Download, FileText } from "lucide-react";
-import { impactStats } from "@/lib/portfolio-data";
 
 export default function ResumePage() {
   return (
@@ -26,9 +25,9 @@ export default function ResumePage() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="grid lg:grid-cols-[0.8fr_1.2fr] gap-6 mb-10"
+        className="mb-10"
       >
-        <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+        <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm max-w-2xl">
           <div className="mb-5 inline-flex rounded-lg bg-slate-950 p-2 text-white">
             <FileText size={18} />
           </div>
@@ -48,19 +47,6 @@ export default function ResumePage() {
             <Download size={16} />
             Download PDF
           </motion.a>
-        </div>
-
-        <div className="grid sm:grid-cols-2 gap-4">
-          {impactStats.map((stat) => (
-            <div
-              key={stat.label}
-              className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm"
-            >
-              <div className="text-2xl font-semibold">{stat.value}</div>
-              <div className="text-sm font-semibold mt-2">{stat.label}</div>
-              <p className="text-sm text-slate-500 mt-1">{stat.detail}</p>
-            </div>
-          ))}
         </div>
       </motion.section>
 
