@@ -33,7 +33,7 @@ export default function RootLayout({
       <body className="bg-white text-slate-800">
 
         {/* ================= MOBILE PROFILE (NEW) ================= */}
-        <div className="md:hidden px-6 pt-10 pb-6 border-b border-slate-200">
+        <div className="md:hidden relative z-40 bg-white px-6 pt-10 pb-6 border-b border-slate-200">
           <img
             src="/profile.jpeg"
             alt="Apurbo Biswas"
@@ -63,7 +63,7 @@ export default function RootLayout({
         <div className="md:flex">
 
           {/* ================= DESKTOP SIDEBAR ================= */}
-          <aside className="hidden md:flex w-[28%] min-w-[340px] h-screen fixed left-0 top-0 border-r border-slate-200 px-10 py-14 flex-col">
+          <aside className="hidden md:flex w-[28%] min-w-[340px] h-screen fixed left-0 top-0 border-r border-slate-200 px-10 py-14 flex-col z-50 bg-white">
             <div>
               <img
                 src="/profile.jpeg"
