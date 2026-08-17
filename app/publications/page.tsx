@@ -2,15 +2,18 @@
 
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
+import { ExternalLink } from "lucide-react";
 import { publications } from "@/lib/portfolio-data";
 
 const filters = [
   "All",
+  "Journal",
   "Conference",
   "Book Chapter",
   "Deep Learning",
   "LLMs",
   "Healthcare AI",
+  "Medical Imaging",
   "Forecasting",
   "Cybersecurity",
 ];
@@ -41,7 +44,7 @@ export default function PublicationsPage() {
       >
         <h2 className="text-2xl font-semibold">Publications</h2>
         <p className="text-slate-600 leading-relaxed mt-4 max-w-3xl">
-          Seven research outputs spanning deep learning, multimodal AI,
+          Eight research outputs spanning deep learning, multimodal AI,
           healthcare NLP, medical imaging, traffic risk prediction, forecasting,
           and cybersecurity.
         </p>
@@ -92,7 +95,19 @@ export default function PublicationsPage() {
               </div>
 
               <h3 className="text-lg font-semibold leading-snug">
-                {publication.title}
+                {publication.href ? (
+                  <a
+                    href={publication.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 hover:text-slate-950 transition group"
+                  >
+                    {publication.title}
+                    <ExternalLink size={14} className="shrink-0 text-slate-400 group-hover:text-slate-700 transition" />
+                  </a>
+                ) : (
+                  publication.title
+                )}
               </h3>
 
               <p className="text-sm text-slate-500 mt-2">

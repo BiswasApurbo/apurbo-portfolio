@@ -1,7 +1,7 @@
 export const impactStats = [
-  { label: "Publications", value: "7", detail: "Conference papers and book chapter" },
+  { label: "Publications", value: "8", detail: "Journal, conference papers, and book chapter" },
   { label: "Reviewer Roles", value: "3", detail: "IEEE Access, PLOS ONE, IGI Global" },
-  { label: "Academic CGPA", value: "3.86", detail: "BSc in CSE, AIUB" },
+  { label: "Academic CGPA", value: "3.87", detail: "BSc in CSE, AIUB" },
   { label: "Applied Projects", value: "6", detail: "Vision, forecasting, transport, systems" },
 ];
 
@@ -15,6 +15,16 @@ export const focusAreas = [
 ];
 
 export const publications = [
+  {
+    title:
+      "An Interpretable Deep Learning Approach for Breast Cancer Classification and Tumor Localization from Histopathological Images",
+    venue: "Results in Engineering",
+    publisher: "Elsevier (Q1)",
+    year: "2026",
+    type: "Journal",
+    tags: ["Medical Imaging", "Deep Learning", "Explainable AI", "Computer Vision"],
+    href: "https://www.sciencedirect.com/science/article/pii/S2590123026031282",
+  },
   {
     title:
       "Industry 5.0-Driven Deep Learning Framework for Long-Term Global CO2 Emission Forecasting",
@@ -58,6 +68,7 @@ export const publications = [
     year: "2026",
     type: "Conference",
     tags: ["Deep Learning", "Traffic AI", "Risk Prediction"],
+    href: "https://ieeexplore.ieee.org/abstract/document/11546619",
   },
   {
     title:
@@ -67,6 +78,7 @@ export const publications = [
     year: "2025",
     type: "Conference",
     tags: ["Healthcare AI", "NLP", "LLMs"],
+    href: "https://ieeexplore.ieee.org/abstract/document/11526388",
   },
   {
     title: "Securing the Future: Enhancing Cybersecurity in Supply Chains",
@@ -75,6 +87,7 @@ export const publications = [
     year: "2025",
     type: "Book Chapter",
     tags: ["Cybersecurity", "Supply Chain", "Applied AI"],
+    href: "https://www.igi-global.com/chapter/securing-the-future/411695",
   },
 ];
 

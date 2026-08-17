@@ -3,7 +3,7 @@
 import "./globals.css";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Github, Linkedin, Facebook, Instagram, Mail, Menu, X } from "lucide-react";
+import { Github, Linkedin, Facebook, Instagram, Mail, Menu, X, GraduationCap } from "lucide-react";
 
 export default function RootLayout({
   children,
@@ -53,6 +53,7 @@ export default function RootLayout({
 
           <div className="flex gap-5 mt-4 text-slate-600">
             <SocialIcon href="https://github.com/BiswasApurbo" icon={<Github size={18} />} />
+            <SocialIcon href="https://scholar.google.com/citations?user=NGmnks8AAAAJ&hl=en&oi=ao" icon={<GraduationCap size={18} />} />
             <SocialIcon href="https://www.linkedin.com/in/apurbo-biswas23/" icon={<Linkedin size={18} />} />
             <SocialIcon href="https://www.facebook.com/apurbobiswas.apurbo1" icon={<Facebook size={18} />} />
             <SocialIcon href="https://www.instagram.com/biswas._.apurbo/" icon={<Instagram size={18} />} />
@@ -90,6 +91,7 @@ export default function RootLayout({
 
               <div className="flex items-center gap-6 text-slate-600">
                 <SocialIcon href="https://github.com/BiswasApurbo" icon={<Github size={22} />} />
+                <SocialIcon href="https://scholar.google.com/citations?user=NGmnks8AAAAJ&hl=en&oi=ao" icon={<GraduationCap size={22} />} />
                 <SocialIcon href="https://www.linkedin.com/in/apurbo-biswas23/" icon={<Linkedin size={22} />} />
                 <SocialIcon href="https://www.facebook.com/apurbobiswas.apurbo1" icon={<Facebook size={22} />} />
                 <SocialIcon href="https://www.instagram.com/biswas._.apurbo/" icon={<Instagram size={22} />} />
@@ -99,9 +101,9 @@ export default function RootLayout({
 
             <div className="grid grid-cols-2 gap-3 mt-6">
               {[
-                ["7", "Publications"],
+                ["8", "Publications"],
                 ["3", "Reviewer Roles"],
-                ["3.86", "CGPA"],
+                ["3.87", "CGPA"],
                 ["6", "Projects"],
               ].map(([value, label]) => (
                 <div
