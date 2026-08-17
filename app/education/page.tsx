@@ -36,7 +36,7 @@ export default function EducationPage() {
           </p>
 
           <p className="text-sm text-black font-medium mt-1">
-            2023 – Present | CGPA: 3.86
+            2023 – Present | CGPA: 3.87
           </p>
         </motion.div>
 
