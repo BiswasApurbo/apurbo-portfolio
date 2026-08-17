@@ -32,14 +32,14 @@ export default function ResumePage() {
             <FileText size={18} />
           </div>
 
-          <h3 className="text-lg font-semibold">Current CV Snapshot</h3>
+          <h3 className="text-lg font-semibold">Current Resume Snapshot</h3>
           <p className="text-sm text-slate-600 leading-relaxed mt-3">
-            Updated with seven publications, reviewer experience, academic
+            Updated with 8 publications, reviewer experience, academic
             record, project experience, and technical skills.
           </p>
 
           <motion.a
-            href="/Apurbo_Biswas_Resume.pdf"
+            href="/Resume.pdf"
             download
             whileHover={{ y: -2 }}
             className="mt-6 inline-flex items-center gap-2 rounded-lg bg-slate-950 px-5 py-3 text-sm font-medium text-white hover:bg-slate-800 transition"
@@ -58,9 +58,9 @@ export default function ResumePage() {
         className="w-full h-[950px] border border-slate-200 rounded-lg overflow-hidden shadow-sm bg-white"
       >
         <iframe
-          src="/Apurbo_Biswas_Resume.pdf"
+          src="/Resume.pdf"
           className="w-full h-full"
-          title="Apurbo Biswas Resume"
+          title="Resume"
         />
       </motion.div>
     </div>
